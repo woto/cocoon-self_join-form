@@ -1,4 +1,6 @@
 class Employee < ActiveRecord::Base
   belongs_to :employee
-  attr_accessible :name
+  has_many :employees
+  attr_accessible :name, :employee_id, :employees_attributes
+  accepts_nested_attributes_for :employees
 end

@@ -1,4 +1,5 @@
-<%= form_for(@employee) do |f| %>
+<div style="margin: 10px; padding: 10px; background :#<%= "%06x" % (rand * 0xffffff) %>" class="nested-fields">
+
   <% if @employee.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
@@ -22,12 +23,13 @@
       <%= render 'employee_fields', :f => employee %>
     <% end %>
 
-    <div class="links">
-      <%= link_to_add_association 'Add employees', f, :employees %>
-    </div>
+    <% @stack = @stack.to_i + 1 %>
+    <% if @stack <= 5 %>
+      <div class="links">
+        <%= link_to_add_association 'Add employees', f, :employees %>
+      </div>
+    <% end %>
+
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
