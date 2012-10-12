@@ -23,10 +23,11 @@
       <%= render 'employee_fields', :f => employee %>
     <% end %>
 
-    <% @stack = @stack.to_i + 1 %>
-    <% if @stack <= 5 %>
+    <% stack = stack.nil? ? 0 : stack + 1 %>
+
+    <% if stack <= 5 %>
       <div class="links">
-        <%= link_to_add_association 'Add employees', f, :employees %>
+        <%= link_to_add_association 'Add employees', f, :employees, :render_options => {:locals => {:stack => stack} } %>
       </div>
     <% end %>
 
