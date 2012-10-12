@@ -1,1 +1,2 @@
 The goal of this demo project is to test work of nested forms with cocoon gem
+max stack level deep in ..._fields.html.rb

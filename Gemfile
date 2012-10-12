@@ -38,4 +38,4 @@ gem 'jquery-rails'
 # To use debugger
 gem 'ruby-debug'
 
-gem 'cocoon'
+gem 'cocoon', :git => 'https://github.com/woto/cocoon.git'

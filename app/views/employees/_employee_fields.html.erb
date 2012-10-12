@@ -1,4 +1,6 @@
-<div style="margin: 10px; padding: 10px; background :#<%= "%06x" % (rand * 0xffffff) %>" class="nested-fields">
+<div class="nested-fields" style="margin: 10px; padding: 10px; background: #<%= "%06x" % (rand * 0xffffff) %>">
+
+  <%= link_to_remove_association 'remove', f, :style => "float: right", :confirm => 'Are you sure?' %>
 
   <% if @employee.errors.any? %>
     <div id="error_explanation">
@@ -24,8 +26,9 @@
     <% end %>
 
     <% stack = stack.nil? ? 0 : stack + 1 %>
+    stack = <%= stack %>
 
-    <% if stack <= 5 %>
+    <% if stack <= 2 %>
       <div class="links">
         <%= link_to_add_association 'Add employees', f, :employees, :render_options => {:locals => {:stack => stack} } %>
       </div>
